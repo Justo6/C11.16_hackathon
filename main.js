@@ -44,6 +44,8 @@ $(document).ready(function() {
 
     //initMap(51.4826,0.0077,100000);
 
+    $("#back").click(back_clicked);
+
     $(".dropPhotosButton").click(function () {
         $(".Container1").show();
         $(".Container2").hide();
@@ -126,6 +128,11 @@ $(document).ready(function() {
  * @param miles
  * @returns {number}
  */
+
+function back_clicked () {
+    window.history.back();
+}
+
 function milesToMeters(miles) {
     var meters = miles * 1609.34;
     console.log(miles + " miles to " + meters + " meters");
@@ -186,7 +193,8 @@ function createMarker(place) {
         position: place.geometry.location
     });
 
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'mouseover', function() {
+    // google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });

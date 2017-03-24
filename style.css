@@ -50,10 +50,10 @@ a:active{
 
 #map_container{
     width: 80vw;
-    height:60vh;
+    height:50vh;
     margin: 0 auto;
     position:relative;
-    top: 10vh;
+    top: 2vh;
     overflow:hidden;
     border-radius: 5px;
     border:1px solid black;
@@ -64,7 +64,7 @@ a:active{
          * element that contains the map. */
 #map {
     width: 80vw;
-    height:60vh;
+    height:50vh;
     margin: 0 auto;
     position:relative;
 }
@@ -94,7 +94,7 @@ iframe {
 .panel-default{
     padding:0;
     position:relative;
-    top: 15vh;
+    top: 5vh;
 }
 
 .btn-info {
@@ -335,7 +335,8 @@ h4{
     background-color:black;
     border:none;
     color:white;
-    width:6vw;
+    /*width:6vw;*/
+    width:5em;  /* make constant; doesn't look good when the black div shrinks and expands as you adjust width -VL */
 }
 
 /*.zipcodeForm {*/
