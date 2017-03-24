@@ -50,10 +50,11 @@ a:active{
 
 #map_container{
     width: 80vw;
-    height:50vh;
+    /*height: 60vh; */
+    height: 50vh;           /* 3/25/17, VL */
     margin: 0 auto;
     position:relative;
-    top: 2vh;
+    top: 2vh;               /* 3/25/17, VL */
     overflow:hidden;
     border-radius: 5px;
     border:1px solid black;
@@ -64,7 +65,8 @@ a:active{
          * element that contains the map. */
 #map {
     width: 80vw;
-    height:50vh;
+    /*height: 60vh;*/
+    height: 50vh;           /* 3/25/17, VL */
     margin: 0 auto;
     position:relative;
 }
@@ -94,7 +96,7 @@ iframe {
 .panel-default{
     padding:0;
     position:relative;
-    top: 5vh;
+    top: 5vh;           /* 3/25/17, VL */
 }
 
 .btn-info {
@@ -277,6 +279,7 @@ h4{
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 2px 8px #7a7a7a;
+    text-align: center;
 }
 
 .Container2{
@@ -336,7 +339,7 @@ h4{
     border:none;
     color:white;
     /*width:6vw;*/
-    width:5em;  /* make constant; doesn't look good when the black div shrinks and expands as you adjust width -VL */
+    width:13em;  /* 3/25/17, make constant; doesn't look good when the black div shrinks and expands as you adjust width -VL */
 }
 
 /*.zipcodeForm {*/

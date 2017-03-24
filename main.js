@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     //initMap(51.4826,0.0077,100000);
 
-    $("#back").click(back_clicked);
+    $("#back").click(back_clicked);     // added 3/25/17, VL
 
     $(".dropPhotosButton").click(function () {
         $(".Container1").show();
@@ -193,7 +193,7 @@ function createMarker(place) {
         position: place.geometry.location
     });
 
-    google.maps.event.addListener(marker, 'mouseover', function() {
+    google.maps.event.addListener(marker, 'mouseover', function() {     // added 3/25/17, VL
     // google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
@@ -231,7 +231,8 @@ function addPlaceToDom(placeObj) {
     }
     var tr = $('<tr>');
     var media_button = $('<a href="info.html?name=' + name + '&vicinity='+vicinity+' "><button type="button" class="btn btn-info mediaButton">Info</button></a>');
-    tr.append( $('<td>').html('<a href="#">' + name + '</a>') );
+    // tr.append( $('<td>').html('<a href="#">' + name + '</a>') );
+    tr.append( $('<td>').text(name) );
     tr.append( $('<td>').text(vicinity) );
     tr.append( $('<td>').text(hours) );
     tr.append( $('<td>').text(rating) );
