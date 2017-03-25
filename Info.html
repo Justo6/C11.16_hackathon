@@ -20,6 +20,7 @@
     <div class="venueName">
         <h1 class="infoVenueName"></h1>
     </div>
+
     <div class="venueDetails">
         <ul>
             <li class="infoAddress"></li>
@@ -27,24 +28,30 @@
             <li>Contact</li> -->
         </ul>
 
-        <button type="button" class="btn btn-warning" id="back"><i style="font-size:13px" class="fa">&#xf0d9;</i> Back</button>
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Photos, Tweets, Videos
-                <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                <li class="dropPhotosButton" role="presentation"><a role="menuitem" tabindex="-1" href="#">Photos</a></li>
-                <li role="presentation" class="divider"></li>
-                <li class="dropYouTubeButton" role="presentation"><a role="menuitem" tabindex="-1" href="#">Youtube</a></li>
-                <li role="presentation" class="divider"></li>
-                <li class="dropTweetsButton" role="presentation"><a role="menuitem" tabindex="-1" href="#">Tweets</a></li>
-                <li role="presentation" class="divider"></li>
-            </ul>
+        <div class="btn_area">
+            <button type="button" class="btn btn-warning" id="back"><i style="font-size:13px" class="fa">&#xf0d9;</i> Back</button>
+            <p style="display: inline-block"> | Find out more through: </p> <br />
+            <button type="button" class="btn btn-warning medium part_opaque" id="photo_btn"> Photos </button>
+            <button type="button" class="btn btn-warning medium" id="tweet_btn"> Tweets </button>
+            <button type="button" class="btn btn-warning medium" id="video_btn"> Videos </button>
         </div>
+
+        <!--<div class="dropdown">-->
+            <!--<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Photos, Tweets, Videos-->
+                <!--<span class="caret"></span></button>-->
+            <!--<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">-->
+                <!--<li class="dropPhotosButton" role="presentation"><a role="menuitem" tabindex="-1" href="#">Photos</a></li>-->
+                <!--<li role="presentation" class="divider"></li>-->
+                <!--<li class="dropYouTubeButton" role="presentation"><a role="menuitem" tabindex="-1" href="#">Youtube</a></li>-->
+                <!--<li role="presentation" class="divider"></li>-->
+                <!--<li class="dropTweetsButton" role="presentation"><a role="menuitem" tabindex="-1" href="#">Tweets</a></li>-->
+                <!--<li role="presentation" class="divider"></li>-->
+            <!--</ul>-->
+        <!--</div>-->
     </div>
     <!-- end of drop down button-->
         <div class="colorBar"></div>
-    </div>
+</div>
 
    <!--drop down button -->
     <!--<div class="dropdown">-->
@@ -94,13 +101,13 @@
 
 <div class="Container2">
     <!-- Twitter Tweets container -->
-    <table class="twit">
+    <table class="twit table table-striped table-condensed">
         <thead>
             <tr>
                 <th>
                     <button type="button" class="btn btn-success precedingTweets"> < </button>
                 </th>
-                <th>Tweet</th>
+                <th style="text-align: center">Tweet</th>
                 <th></th>       <!-- dynamically insert text: first # (tweetNum) -->
                 <th> - </th>
                 <th></th>       <!-- dynamically insert text: second # -->

@@ -4,6 +4,16 @@ header {
     color:  white;
 }
 
+/*@media only screen and (max-width: 800px) {*/
+    /*td:first-child {*/
+        /*display: none;*/
+    /*}*/
+/*}*/
+
+.part_opaque {
+    opacity:    0.5;
+}
+
 button {
     margin: auto;
     transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;
@@ -173,7 +183,6 @@ html, body {
     z-index:-1;
 }
 
-
 .landing_page_container {
     display: table-cell;
     vertical-align: middle;
@@ -243,7 +252,8 @@ h4{
 
 .headerContainer {
     width: 100vw;
-    height:28vh;
+    /*height:28vh;*/
+    height:32vh;    /* 3/25/17 -VL */
     padding-top:4vh;
     /*background-color:black;*/
     background: linear-gradient(black, gray); /* Standard syntax */
@@ -283,12 +293,15 @@ h4{
     text-align: center;
 }
 
-.Container2{
-    height: 50vh;
-    width: 70vw;
+.Container2 {
+    /*height: 50vh;*/
+    height: 64vh;
+    /*width: 70vw;*/
+    width: 90vw;
     margin: 0 auto;
     position: relative;
-    top:11vh;
+    /*top:11vh;*/
+    top:3vh;
     border-radius: 5px;
     overflow: hidden;
     display: none;

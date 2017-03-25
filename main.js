@@ -39,7 +39,7 @@ var psn = [];                   // added 3/25/17 - VL
 /**
  * YouTube variables
  */
-var YT_num = 10;                // maximum number of YouTube videos inserted into carousel
+var YT_num = 5;                // maximum number of YouTube videos inserted into carousel
 
 $(document).ready(function() {
 
@@ -58,12 +58,41 @@ $(document).ready(function() {
         $(".Container1").hide();
         $(".Container2").hide();
     });
+
     $(".dropTweetsButton").click(function () {
         $(".Container2").show();
         $(".Container1").hide();
         $(".Container3").hide();
     });
 
+    $("#photo_btn").click(function () {
+        $(".Container1").show();
+        $(".Container2").hide();
+        $(".Container3").hide();
+        $("#photo_btn").addClass("part_opaque");
+        $("#tweet_btn").removeClass("part_opaque");
+        $("#video_btn").removeClass("part_opaque");
+    });
+
+    $("#tweet_btn").click(function () {
+        $(".Container1").hide();
+        $(".Container2").show();
+        $(".Container3").hide();
+        $("#photo_btn").removeClass("part_opaque");
+        $("#tweet_btn").addClass("part_opaque");
+        $("#video_btn").removeClass("part_opaque");
+    });
+
+    $("#video_btn").click(function () {
+        $(".Container1").hide();
+        $(".Container2").hide();
+        $(".Container3").show();
+        $("#photo_btn").removeClass("part_opaque");
+        $("#tweet_btn").removeClass("part_opaque");
+        $("#video_btn").addClass("part_opaque");
+
+
+    });
 
     lat_from_landing = parseFloat(getUrlParameter("lat"));
     long_from_landing = parseFloat(getUrlParameter("long"));
@@ -233,11 +262,11 @@ function addPlaceToDom(placeObj) {
     var tr = $('<tr>');
     var media_button = $('<a href="info.html?name=' + name + '&vicinity='+vicinity+' "><button type="button" class="btn btn-info mediaButton">Info</button></a>');
     // tr.append( $('<td>').html('<a href="#">' + name + '</a>') );
+    tr.append( $('<td>').append(media_button) );
     tr.append( $('<td>').text(name) );
     tr.append( $('<td>').text(vicinity) );
     tr.append( $('<td>').text(hours) );
     tr.append( $('<td>').text(rating) );
-    tr.append( $('<td>').append(media_button) );
     tr.appendTo(places_list);
     // var details = getPlaceDetails(placeid);
     // console.log(details.url);
@@ -341,7 +370,7 @@ function getAndDisplayFlickrPhotos(string) {
     console.log('End of click function');
 }
 
-/** This function receives venue_name as a parameter and then uses it as a search term for Twitter API.  It then gets all tweets (the profile pic of the tweeter and the tweet), places them into an object with 2 properties (urlPic & twt), and stores the object into the global array.  It then displays the first 5 tweets (assuming there are at least 5).  VL*/
+/** This function receives Twitter_searchTerm as a parameter and then uses it as a search term for Twitter API.  It then gets all tweets (the profile pic of the tweeter and the tweet), places them into an object with 2 properties (urlPic & twt), and stores the object into the global array.  It then displays the first 5 tweets (assuming there are at least 5).  VL*/
 /**
  * @param Twitter_searchTerm - the text that the AJAX call to Twitter searches on
  */
@@ -397,7 +426,7 @@ function displayTweets() {
                 $(".Container2 .twit tbody tr:last-child").append($("<td>"));
             }
 
-            if (tweet_storage_array === undefined) {
+            if (tweet_storage_array.length === 0) {
                 $(".Container2 .twit tbody tr:last-child td:nth-child(2)").text("Sorry, there are no tweets for this venue");
                 break;
             }
@@ -457,7 +486,7 @@ function getAndDisplayYTVideos (YT_searchTerm) {
         dataType: 'json',
         url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php?',
         method: "POST",
-        data: {q: YT_searchTerm, maxResults: 5},
+        data: {q: YT_searchTerm, maxResults: YT_num},
         success: function (result) {
             console.log('AJAX successfully called');    console.log("result: ", result);
 
