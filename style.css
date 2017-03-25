@@ -4,11 +4,14 @@ header {
     color:  white;
 }
 
-/*@media only screen and (max-width: 800px) {*/
-    /*td:first-child {*/
-        /*display: none;*/
-    /*}*/
-/*}*/
+@media only screen and (max-width: 600px) {
+    .Container2 tbody td:first-child {
+        display: none;
+    }
+    .tweet_numbering {
+        display: none;
+    }
+}
 
 .part_opaque {
     opacity:    0.5;
@@ -295,13 +298,13 @@ h4{
 
 .Container2 {
     /*height: 50vh;*/
-    height: 64vh;
+    height: 60vh;
     /*width: 70vw;*/
-    width: 90vw;
+    width: 80vw;
     margin: 0 auto;
     position: relative;
     /*top:11vh;*/
-    top:3vh;
+    top:5vh;
     border-radius: 5px;
     overflow: hidden;
     display: none;
