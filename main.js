@@ -34,6 +34,7 @@ var places_array = [];
 var tweet_storage_array = [];   // where I store all the tweets for the current venue
 var tweetNum;                   // which Tweet number we are on, the 1st of five
 var totalTweetNum;              // the number of tweets we have pulled from Twitter API for the current venue
+var psn = [];                   // added 3/25/17 - VL
 
 /**
  * YouTube variables
@@ -273,6 +274,8 @@ function landingPageButtonClicked() {
             console.log(data);
             console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
             document.location.href = "index.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
+            psn.push(latitude);
+            psn.push(longitude);
         }
     });
     console.log('End of click function');
@@ -293,9 +296,13 @@ function zipCodeButtonClicked() {
             console.log(data);
             console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
             initMap(latitude, longitude, radius);
+            psn.push(latitude);
+            psn.push(longitude);
+            return psn;
         }
     });
     console.log('End of click function');
+    return psn;
 }
 
 function getAndDisplayFlickrPhotos(string) {
@@ -342,11 +349,13 @@ function getAndDisplayFirstTweets (Twitter_searchTerm) {
     var photo, picLink;
     tweetNum = 1;       // global variable; this function is only called once at "document(ready)", so tweetNum will always be 1
     console.log("in function getAndDisplayFirstTweets");
+    console.log("latitude: " + psn[0] + "  longitude: " + psn[1]);
 
     $.ajax ({
         dataType:   'json',
         url:        'http://s-apis.learningfuze.com/hackathon/twitter/index.php',
         method:     "POST",
+        // data: {search_term: Twitter_searchTerm, lat: psn.lat, long: psn.lng, radius: 500},
         data: {search_term: Twitter_searchTerm, lat: 34, long: -118, radius: 500},  // lat & long for Orange County
         success: function(result) {
             console.log("result: ", result);    console.log('AJAX successfully called');
