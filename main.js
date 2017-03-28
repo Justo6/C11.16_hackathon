@@ -1,11 +1,5 @@
 /* Sean, Miles, Mike, Vernon    Music Venue     Hack-a-thon     December 12-13, 2016    */
 
-//START GOOGLE PLACES API
-
-/**
- *  https://developers.google.com/maps/documentation/javascript/places
- */
-
 /**
  * Global variables for html elements
  */
@@ -61,6 +55,9 @@ $(document).ready(function() {
         $(".Container3").hide();
     });
 
+    $('.backButton').click(function() {
+        window.history.back();
+    });
 
     lat_from_landing = parseFloat(getUrlParameter("lat"));
     long_from_landing = parseFloat(getUrlParameter("long"));
@@ -74,7 +71,6 @@ $(document).ready(function() {
     $(places_list).on('click', '.mediaButton', function(){
         var index = $(this).index('.mediaButton');
         var name = places_array[index].name;
-        //alert(name);
     });
 
     input_zipcode = $('#zipcode');
@@ -92,15 +88,11 @@ $(document).ready(function() {
             url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC87SYazc5x5nNq7digLxdNnB3riG_eaVc',
             method: "POST",
             success: function(data) {
-                console.log('AJAX Success function called, with the following result:', data);
                 latitude = data.location.lat;
                 longitude= data.location.lng;
-                console.log(data);
-                console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
                 document.location.href = "map.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
             }
         });
-        console.log('End of click function');
 
     });
     $('.manualLocationButton').click(function() {
@@ -117,32 +109,14 @@ $(document).ready(function() {
     $(".infoAddress").append(vicinity);
     getAndDisplayFirstTweets(venue_name + city);    // gets tweets from Twitter API and displays on info.html
     getAndDisplayYTVideos(venue_name + city);       // gets videos from YouTube API and displays on info.html
-    // flicker API call begins here
     getAndDisplayFlickrPhotos(venue_name + city);
 });
 
-/**
- * Converts miles to meters
- * @param miles
- * @returns {number}
- */
 function milesToMeters(miles) {
-    var meters = miles * 1609.34;
-    console.log(miles + " miles to " + meters + " meters");
-    return meters;
+    return miles * 1609.34;
 }
 
-/**
- * Creates a Google Map element inside the #map div and
- * @param lat {number}:
- * @param long
- * @param radius
- */
 function initMap(lat, long, radius) {
-    // var lat = 33;
-    // var long = -117;
-    //var radius = 50000;
-    //radius in meters
     var keyword = "music venues";
     if (!radius) {
         radius = 50000;
@@ -150,8 +124,6 @@ function initMap(lat, long, radius) {
         radius = milesToMeters(radius);
     }
     var original_location = {lat: lat, lng: long};
-
-    //var original_location = {lat: -33.867, lng: 151.195};
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: original_location,
@@ -163,8 +135,7 @@ function initMap(lat, long, radius) {
     service.nearbySearch({
         location: original_location,
         radius: radius,
-//                type: ['store']
-        keyword: "music venues"
+        keyword: keyword
     }, callback);
 }
 
@@ -174,7 +145,6 @@ function callback(results, status) {
             createMarker(results[i]);
         }
     }
-    console.log(results);
     places_array = results;
     populateList();
 }
@@ -183,7 +153,7 @@ function createMarker(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location
+        position: placeLoc
     });
 
     google.maps.event.addListener(marker, 'click', function() {
@@ -212,8 +182,6 @@ function addPlaceToDom(placeObj) {
     var name = placeObj.name;
     var vicinity  = placeObj.vicinity;
     var rating  = placeObj.rating;
-    //var placeid = placeObj.place_id;
-    // var hours = false;
     var hours = "Closed";
     if (placeObj.opening_hours) {
         if (placeObj.opening_hours.open_now){
@@ -229,8 +197,6 @@ function addPlaceToDom(placeObj) {
     tr.append( $('<td>').text(rating) );
     tr.append( $('<td>').append(media_button) );
     tr.appendTo(places_list);
-    // var details = getPlaceDetails(placeid);
-    // console.log(details.url);
 }
 //END GOOGLE PLACES API
 
@@ -252,49 +218,37 @@ function getUrlParameter(sParam) {
 function landingPageButtonClicked() {
     zipcode = input_zipcode.val();
     radius = $('#radius').val();
-    console.log('click initiated');
     $.ajax({
         dataType: 'json',
         url: 'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
         method: "POST",
         success: function(data) {
-            console.log('AJAX Success function called, with the following result:', data);
             latitude = data.results[0].geometry.location.lat;
             longitude= data.results[0].geometry.location.lng;
-            console.log(data);
-            console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
             document.location.href = "map.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
         }
     });
-    console.log('End of click function');
 }
 
 function zipCodeButtonClicked() {
     zipcode = input_zipcode.val();
     radius = $('#radius').val();
-    console.log('click initiated');
     $.ajax({
         dataType: 'json',
         url: 'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
         method: "POST",
         success: function(data) {
-            console.log('AJAX Success function called, with the following result:', data);
             latitude = data.results[0].geometry.location.lat;
             latitude = data.results[0].geometry.location.lat;
             longitude= data.results[0].geometry.location.lng;
-            console.log(data);
-            console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
             initMap(latitude, longitude, radius);
         }
     });
-    console.log('End of click function');
 }
 
 function getAndDisplayFlickrPhotos(string) {
     $(".container1").show();
-    //imageSearch = $("#imageSearch").val();
     imageSearch = string;
-    console.log('click initiated' , imageSearch);
     $.ajax({
         dataType: 'json',
         url: "https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=4291af049e7b51ff411bc39565109ce6&format=json&nojsoncallback=1&text=" + imageSearch,
@@ -315,7 +269,7 @@ function getAndDisplayFlickrPhotos(string) {
                     $("#myCarousel .carousel-inner").append(imageDiv);
                     $(imageDiv).append(image);
                 }
-                else{
+                else {
                     imageDiv = $("<div>").addClass("item");
                     $("#myCarousel .carousel-inner").append(imageDiv);
                     $(imageDiv).append(image);
@@ -323,7 +277,6 @@ function getAndDisplayFlickrPhotos(string) {
             }
         }
     });
-    console.log('End of click function');
 }
 
 /** This function receives venue_name as a parameter and then uses it as a search term for Twitter API.  It then gets all tweets (the profile pic of the tweeter and the tweet), places them into an object with 2 properties (urlPic & twt), and stores the object into the global array.  It then displays the first 5 tweets (assuming there are at least 5).  VL*/
@@ -333,7 +286,6 @@ function getAndDisplayFlickrPhotos(string) {
 function getAndDisplayFirstTweets (Twitter_searchTerm) {
     var photo, picLink;
     tweetNum = 1;       // global variable; this function is only called once at "document(ready)", so tweetNum will always be 1
-    console.log("in function getAndDisplayFirstTweets");
 
     $.ajax ({
         dataType:   'json',
@@ -341,20 +293,16 @@ function getAndDisplayFirstTweets (Twitter_searchTerm) {
         method:     "POST",
         data: {search_term: Twitter_searchTerm, lat: 34, long: -118, radius: 500},  // lat & long for Orange County
         success: function(result) {
-            console.log("result: ", result);    console.log('AJAX successfully called');
-
             var array = result.tweets.statuses;
             var length = array.length;
             totalTweetNum = length;             // global variable
 
             for (var j = 0; j < length; j++) {  // store each tweet pic url and text into object within global array
-                console.log("j: " + j);
                 tweet_storage_array[j] = {};
                 tweet_storage_array[j].urlPic = result.tweets.statuses[j].user.profile_image_url;
                 tweet_storage_array[j].twt = result.tweets.statuses[j].text;
             }
             displayTweets();                    // display the 1st five tweets
-            console.log("tweet_storage_array: ", tweet_storage_array);
         }
     });
 }
@@ -434,7 +382,6 @@ function displayPrecedingTweets () {
  */
 function getAndDisplayYTVideos (YT_searchTerm) {
     var title, id_video, vid;
-    console.log("in function getAndDisplayYTVideos");
 
     $.ajax({
         dataType: 'json',
@@ -442,20 +389,16 @@ function getAndDisplayYTVideos (YT_searchTerm) {
         method: "POST",
         data: {q: YT_searchTerm, maxResults: 5},
         success: function (result) {
-            console.log('AJAX successfully called');    console.log("result: ", result);
 
             var array = result.video;
-            // var length = array.length;  save this just in case we want to include all YouTube videos.
 
             for (var j = 0; j < YT_num; j++) {  // YT_num is a global variable that is initialized to 10 for now.
-                console.log("j: " + j);
 
                 title = result.video[j].title;  // Though we don't do anything with title, we might use it in future.
                 id_video = result.video[j].id;
 
                 vid = $("<iframe>", {
                     src: "https://www.youtube.com/embed/" + id_video
-                    // src:    "http://www.youtube.com/v/" + id_video + "?enablejsapi=1&version=3&playerapiid=ytplayer"
                 });
 
                 if (!j) {
