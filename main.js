@@ -384,8 +384,8 @@ function getAndDisplayFirstTweets (Twitter_searchTerm) {
         dataType:   'json',
         url:        'http://s-apis.learningfuze.com/hackathon/twitter/index.php',
         method:     "POST",
-        data: {search_term: Twitter_searchTerm, lat: psn[0], long: psn[1], radius: 500},
-        // data: {search_term: Twitter_searchTerm, lat: 34, long: -118, radius: 500},  // lat & long for Orange County
+        // data: {search_term: Twitter_searchTerm, lat: psn[0], long: psn[1], radius: 500},
+        data: {search_term: Twitter_searchTerm, lat: 34, long: -118, radius: 500},  // lat & long for Orange County
         success: function(result) {
             console.log("result: ", result);    console.log('AJAX successfully called');
 
@@ -425,6 +425,7 @@ function displayTweets() {
             for (var v=0; v < 2; ++v) {                         // append 2 columns to the row just created
                 $(".Container2 .twit tbody tr:last-child").append($("<td>"));
             }
+            $(".Container2 .twit tbody tr:last-child td:last-child").attr("colspan", "6");
 
             if (tweet_storage_array.length === 0) {
                 $(".Container2 .twit tbody tr:last-child td:nth-child(2)").text("Sorry, there are no tweets for this venue");
@@ -440,6 +441,8 @@ function displayTweets() {
             tweet = tweet_storage_array[w].twt;
             $(".Container2 .twit tbody tr:last-child td:nth-child(2)").append(tweet);
         } // end of outer for loop
+
+    $(".Container2 .twit tbody tr").css("overflow", "auto");
     } // end of function displayTweets
 
 /** This function deletes the table rows of the old tweets first, then displays the next 5 tweets.  The if block takes care of the "wrap around" in case the user exceeds the number of tweets. Function called when clicking on "greater than" symbol on right hand side.  VL */
