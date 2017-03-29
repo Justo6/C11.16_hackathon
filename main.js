@@ -69,27 +69,27 @@ $(document).ready(function() {
         $(".Container1").show();
         $(".Container2").hide();
         $(".Container3").hide();
-        $("#photo_btn").addClass("part_opaque");
-        $("#tweet_btn").removeClass("part_opaque");
-        $("#video_btn").removeClass("part_opaque");
+        $("#photo_btn").addClass("disabled");
+        $("#tweet_btn").removeClass("disabled");
+        $("#video_btn").removeClass("disabled");
     });
 
     $("#tweet_btn").click(function () {
         $(".Container1").hide();
         $(".Container2").show();
         $(".Container3").hide();
-        $("#photo_btn").removeClass("part_opaque");
-        $("#tweet_btn").addClass("part_opaque");
-        $("#video_btn").removeClass("part_opaque");
+        $("#photo_btn").removeClass("disabled");
+        $("#tweet_btn").addClass("disabled");
+        $("#video_btn").removeClass("disabled");
     });
 
     $("#video_btn").click(function () {
         $(".Container1").hide();
         $(".Container2").hide();
         $(".Container3").show();
-        $("#photo_btn").removeClass("part_opaque");
-        $("#tweet_btn").removeClass("part_opaque");
-        $("#video_btn").addClass("part_opaque");
+        $("#photo_btn").removeClass("disabled");
+        $("#tweet_btn").removeClass("disabled");
+        $("#video_btn").addClass("disabled");
 
 
     });
@@ -384,8 +384,8 @@ function getAndDisplayFirstTweets (Twitter_searchTerm) {
         dataType:   'json',
         url:        'http://s-apis.learningfuze.com/hackathon/twitter/index.php',
         method:     "POST",
-        // data: {search_term: Twitter_searchTerm, lat: psn.lat, long: psn.lng, radius: 500},
-        data: {search_term: Twitter_searchTerm, lat: 34, long: -118, radius: 500},  // lat & long for Orange County
+        data: {search_term: Twitter_searchTerm, lat: psn[0], long: psn[1], radius: 500},
+        // data: {search_term: Twitter_searchTerm, lat: 34, long: -118, radius: 500},  // lat & long for Orange County
         success: function(result) {
             console.log("result: ", result);    console.log('AJAX successfully called');
 

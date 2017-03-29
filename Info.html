@@ -31,7 +31,7 @@
         <div class="btn_area">
             <button type="button" class="btn btn-warning" id="back"><i style="font-size:13px" class="fa">&#xf0d9;</i> Back</button>
             <p style="display: inline-block"> | Find out more through: </p> <br />
-            <button type="button" class="btn btn-warning medium part_opaque" id="photo_btn"> Photos </button>
+            <button type="button" class="btn btn-warning medium disabled" id="photo_btn"> Photos </button>
             <button type="button" class="btn btn-warning medium" id="tweet_btn"> Tweets </button>
             <button type="button" class="btn btn-warning medium" id="video_btn"> Videos </button>
         </div>
@@ -69,7 +69,7 @@
 <!--</div>-->
 <!--&lt;!&ndash; end of drop down button&ndash;&gt;-->
 
-<div class="Container1"> Photos
+<div class="Container1"> <b><span class="explain_text">Photos</span></b>
     <!-- photo container -->
     <div id="myCarousel" class="carousel slide">
         <ol class = "carousel-indicators">
@@ -124,7 +124,6 @@
     </table>
 </div>
 
-
 <div class="Container3">
     <!-- YouTube videos container -->
     <div id="myCarousel2" class="carousel slide" data-interval="false"> <!-- data-ride="carousel"; interval to false stops it sliding -->
@@ -151,7 +150,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    Pause video before going on to next video by clicking anywhere in video frame.
+    <span class="explain_text">Pause video before going on to next video by clicking anywhere in video frame.</span>
 </div>
 </body>
 </html>

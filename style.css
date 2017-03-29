@@ -4,17 +4,8 @@ header {
     color:  white;
 }
 
-@media only screen and (max-width: 600px) {
-    .Container2 tbody td:first-child {
-        display: none;
-    }
-    .tweet_numbering {
-        display: none;
-    }
-}
-
-.part_opaque {
-    opacity:    0.5;
+.explain_text {
+    color:  purple;
 }
 
 button {
@@ -30,8 +21,9 @@ button:hover{
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-    width: 70%;
+    /*width: 70%;*/
     margin: auto;
+    min-height: 100%
 }
 
 .container{
@@ -99,7 +91,8 @@ iframe {
     border: 0;
     display: inline-block;
     width:100%;
-    height:360px;
+    /*height:360px;*/
+    height: 100%;
 }
 
 .table-responsive{
@@ -260,7 +253,9 @@ h4{
     padding-top:4vh;
     /*background-color:black;*/
     background: linear-gradient(black, gray); /* Standard syntax */
+    overflow-y: auto;
 }
+
 .venueName > h1{
     text-align: center;
     color:white;
@@ -282,6 +277,18 @@ h4{
 
 .venueDetails ul{
     padding:0;
+}
+
+#myCarousel, #myCarousel2 {
+    background-color:   #000;
+}
+
+#myCarousel, .carousel-inner, .item, .active {
+    height: 100%;
+}
+
+#myCarousel2 {
+    height: 96%;
 }
 
 .Container1 {
@@ -368,7 +375,7 @@ h4{
 .carousel-inner {
     border-radius: 10px;
     border: none;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .btn-warning{
@@ -394,4 +401,16 @@ h4{
     position: relative;
     top:8vh;
     box-shadow: 0 2px 8px #b5b5b5;
+}
+
+@media only screen and (max-width: 600px) {
+    .Container2 tbody td:first-child {
+        display: none;
+    }
+    .tweet_numbering {
+        display: none;
+    }
+    #myCarousel2 {
+        height: 82%;
+    }
 }
