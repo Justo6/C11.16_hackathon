@@ -1,123 +1,107 @@
 
 header {
     text-align: center;
-    color:  white;
-}
-
-.explain_text {
-    color:  purple;
+    color:      white;
 }
 
 button {
-    margin: auto;
+    margin:     auto;
     transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;
     box-shadow: 0 0 5px #7a7a7a;
 }
 
-button:hover{
+button:hover {
     top: -1px;
     box-shadow: 0 0 5px #7a7a7a;
 }
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-    /*width: 70%;*/
-    margin: auto;
+    margin:     auto;
     min-height: 100%
 }
 
-.container{
-     width:80vw;
+.container {
+     width: 80vw;
  }
 
-.photosButton > a{
-    color:white;
+.photosButton > a {
+    color:  white;
 }
 
 a:hover,
 a:link,
 a:visited,
-a:active{
+a:active {
   text-decoration:none;
   cursor: hand;
 }
 
-/*.container{*/
-/*}*/
-
-/*.form-group{*/
-    /*margin:0 auto;*/
-/*}*/
-
-.form-inline{
-    width:60vw;
+.form-inline {
+    width:  60vw;
     margin: auto;
 }
 
-#map_container{
-    width: 80vw;
-    /*height: 60vh; */
-    height: 50vh;           /* 3/25/17, VL */
-    margin: 0 auto;
-    position:relative;
-    top: 2vh;               /* 3/25/17, VL */
-    overflow:hidden;
-    border-radius: 5px;
-    border:1px solid black;
-    box-shadow: 2px 5px 10px #dddddd;
+#map_container {
+    width:          80vw;
+    height:         50vh;       /* 3/25/17, VL; vice 60vh to make info table more visible to user when 1st rendered. */
+    margin:         0 auto;
+    position:       relative;
+    top:            2vh;        /* 3/25/17, VL; vice 5 or 10vh to make info table more visible to user when 1st rendered. */
+    overflow:       hidden;
+    border-radius:  5px;
+    border:         1px solid black;
+    box-shadow:     2px 5px 10px #dddddd;
 }
 
-/* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
+/* Always set the map height explicitly to define the size of the div element that contains the map. */
 #map {
-    width: 80vw;
-    /*height: 60vh;*/
-    height: 50vh;           /* 3/25/17, VL */
-    margin: 0 auto;
-    position:relative;
+    width:      80vw;
+    height:     50vh;           /* 3/25/17, VL; to match height of #map_container */
+    margin:     0 auto;
+    position:   relative;
 }
 
-thead > tr{
-    background-color: #404040;
-    color:white;
+thead > tr {
+    background-color:   #404040;
+    color:              white;
 }
 
 tbody>tr,
-.btn-info{
+.btn-info {
     transition: background-color 0.5s linear 0s, color 0.5s linear 0s;
 }
 
 iframe {
-    border: 0;
-    display: inline-block;
-    width:100%;
-    /*height:360px;*/
-    height: 100%;
+    border:     0;
+    display:    inline-block;
+    width:      100%;
+    height:     100%;
 }
 
-.table-responsive{
-    -webkit-border-radius: 2px;
-    -webkit-box-shadow: 2px 5px 10px #dddddd;
+.table-responsive {
+    -webkit-border-radius:  2px;
+    -webkit-box-shadow:     2px 5px 10px #dddddd;
 }
 
-.panel-default{
-    padding:0;
-    position:relative;
-    top: 5vh;           /* 3/25/17, VL */
+.panel-default {
+    padding:    0;
+    position:   relative;
+    top:        5vh;           /* 3/25/17, VL */
 }
 
 .btn-info {
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b5b5b", endColorstr="#282828");
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#5b5b5b), to(#282828));
-    background-image: -moz-linear-gradient(top, #5b5b5b, #282828);
-    background-image: -ms-linear-gradient(top, #5b5b5b, #282828);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5b5b5b), color-stop(100%, #282828));
-    background-image: -webkit-linear-gradient(top, #5b5b5b, #282828);
-    background-image: -o-linear-gradient(top, #5b5b5b, #282828);
-    background-image: linear-gradient(#5b5b5b, #282828);
-    border-color: #282828 #282828 hsl(0, 0%, 11%);
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+    background-repeat:  repeat-x;
+    filter:             progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b5b5b", endColorstr="#282828");
+    background-image:   -khtml-gradient(linear, left top, left bottom, from(#5b5b5b), to(#282828));
+    background-image:   -moz-linear-gradient(top, #5b5b5b, #282828);
+    background-image:   -ms-linear-gradient(top, #5b5b5b, #282828);
+    background-image:   -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5b5b5b), color-stop(100%, #282828));
+    background-image:   -webkit-linear-gradient(top, #5b5b5b, #282828);
+    background-image:   -o-linear-gradient(top, #5b5b5b, #282828);
+    background-image:   linear-gradient(#5b5b5b, #282828);
+    border-color:       #282828 #282828 hsl(0, 0%, 11%);
+    text-shadow:        0 -1px 0 rgba(0, 0, 0, 0.33);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -125,42 +109,39 @@ iframe {
     color:  white;
 }
 
-tbody > tr{
+tbody > tr {
     font-weight: 500;
 }
 
-td:first-child{
-    color: #2c80c2;
-    font-size:1.1em;
+td:first-child {
+    color:      #2c80c2;
+    font-size:  1.1em;
 }
 
-td:first-child:hover{
-    color: #143f4e;
-    text-decoration:underline;
+td:first-child:hover {
+    color:              #143f4e;
+    text-decoration:    underline;
 }
 
-.boldTitle{
-    font-weight:900;
+.boldTitle {
+    font-weight:    900;
 }
 
-.lightTitle{
-    font-weight:400;
+.lightTitle {
+    font-weight:    400;
 }
 
-/**
-*LANDING PAGE DESIGN
-*/
-
+/** LANDING PAGE DESIGN **/
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: table;
-    min-height:100%;
-    -webkit-animation: fadein 2s;
-    -moz-animation: fadein 2s;
-    animation: fadein 2s;
+    margin:             0;
+    padding:            0;
+    width:              100%;
+    height:             100%;
+    display:            table;
+    min-height:         100%;
+    -webkit-animation:  fadein 2s;
+    -moz-animation:     fadein 2s;
+    animation:          fadein 2s;
 }
 
 @-webkit-keyframes fadein {
@@ -168,261 +149,223 @@ html, body {
     to   { opacity: 1; }
 }
 
-#image_background{
-    margin:0;
-    height:100%;
-    width:100%;
-    position:fixed;
-    background-image: url('img/background_image.jpg');
-    background-repeat: no-repeat;
-    background-size:cover;
-    z-index:-1;
+#image_background {
+    margin:             0;
+    height:             100%;
+    width:              100%;
+    position:           fixed;
+    background-image:   url('img/background_image.jpg');
+    background-repeat:  no-repeat;
+    background-size:    cover;
+    z-index:            -1;
 }
 
 .landing_page_container {
-    display: table-cell;
+    display:        table-cell;
     vertical-align: middle;
 }
 
-h1{
-    margin:0;
-    font-size:4em;
-    color:white;
+h1 {
+    margin:     0;
+    font-size:  4em;
+    color:      white;
 }
 
-h4{
-    padding-bottom:3vh;
-    color:white;
+h4 {
+    padding-bottom: 3vh;
+    color:          white;
 }
 
 .zipCodeButton{
-    transition: background-color 0.5s linear 0s, color 0.5s linear 0s;
+    transition:     background-color 0.5s linear 0s, color 0.5s linear 0s;
 }
 
 /* Input Placeholder Transition */
 :hover::-webkit-input-placeholder {
-    opacity: 0.75;
-    -webkit-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:                0.75;
+    -webkit-transition:     opacity 0.35s ease-in-out;
+    transition:             opacity 0.35s ease-in-out;
 }
+
 :hover:-moz-placeholder {
-    opacity: 0.75;
-    -moz-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:            0.75;
+    -moz-transition:    opacity 0.35s ease-in-out;
+    transition:         opacity 0.35s ease-in-out;
 }
 :hover::-moz-placeholder {
-    opacity: 0.75;
-    -moz-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:            0.75;
+    -moz-transition:    opacity 0.35s ease-in-out;
+    transition:         opacity 0.35s ease-in-out;
 }
+
 :hover:-ms-input-placeholder {
-    opacity: 0.75;
-    -ms-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:            0.75;
+    -ms-transition:     opacity 0.35s ease-in-out;
+    transition:         opacity 0.35s ease-in-out;
 }
 
 :focus::-webkit-input-placeholder {
-    opacity: 0;
-    -webkit-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:                0;
+    -webkit-transition:     opacity 0.35s ease-in-out;
+    transition:             opacity 0.35s ease-in-out;
 }
+
 :focus:-moz-placeholder {
-    opacity: 0;
-    -moz-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:            0;
+    -moz-transition:    opacity 0.35s ease-in-out;
+    transition:         opacity 0.35s ease-in-out;
 }
+
 :focus::-moz-placeholder {
-    opacity: 0;
-    -moz-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:            0;
+    -moz-transition:    opacity 0.35s ease-in-out;
+    transition:         opacity 0.35s ease-in-out;
 }
+
 :focus:-ms-input-placeholder {
-    opacity: 0;
-    -ms-transition: opacity 0.35s ease-in-out;
-    transition: opacity 0.35s ease-in-out;
+    opacity:            0;
+    -ms-transition:     opacity 0.35s ease-in-out;
+    transition:         opacity 0.35s ease-in-out;
 }
 
-/**
-* INFO.HTML STYLING
-*/
-
+/** INFO.HTML STYLING **/
 .headerContainer {
-    width: 100vw;
-    /*height:28vh;*/
-    height:32vh;    /* 3/25/17 -VL */
-    padding-top:4vh;
-    /*background-color:black;*/
-    background: linear-gradient(black, gray); /* Standard syntax */
-    overflow-y: auto;
+    width:          100vw;
+    height:         32vh;    /* 3/25/17 VL; vice 28vh to allow more room for horizontal rule and 2nd row of buttons */
+    padding-top:    4vh;
+    background:     linear-gradient(black, gray); /* Standard syntax */
+    overflow-y:     auto;   /* 3/25/17 VL; added for responsiveness */
 }
 
-.venueName > h1{
+.venueName > h1 {
     text-align: center;
-    color:white;
-    position:relative;
-    font-size:3em;
+    color:      white;
+    position:   relative;
+    font-size:  3em;
 }
 
-.venueDetails  {
+.venueDetails {
     text-align: center;
-    font-size:1.2em;
-    /*position:relative;*/
-    /*top:4vh;*/
-    color:white;
+    font-size:  1.2em;
+    color:      white;
 }
+
 .venueDetails ul li {
-    list-style-type: none;
-    line-height: 4vh;
+    list-style-type:    none;
+    line-height:        4vh;
 }
 
-.venueDetails ul{
-    padding:0;
+.venueDetails ul {
+    padding:    0;
 }
 
 #myCarousel, #myCarousel2 {
     background-color:   #000;
 }
 
-#myCarousel, .carousel-inner, .item, .active {
+#myCarousel, .carousel-inner, .item, .active {  /* flickr photos */
     height: 100%;
 }
 
-#myCarousel2 {
-    height: 96%;
+#myCarousel2 {      /* YouTube videos */
+    height: 91%;    /* to allow room for explanatory text at bottom of YouTube video carousel */
 }
 
+.Container1, .Container2, .Container3 {
+    margin:         0 auto;
+    position:       relative;
+    border-radius:  5px;
+    box-shadow:     0 2px 8px #7a7a7a;
+}
+
+/* flickr photos */
 .Container1 {
-    height: 50vh;
-    width: 70vw;
-    margin: 0 auto;
-    position: relative;
-    top:11vh;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px #7a7a7a;
+    height:         50vh;
+    width:          70vw;
+    top:            11vh;
+    overflow:       hidden;
+    text-align:     center;
+}
+
+/* tweets */
+.Container2 {
+    height:         60vh;   /* 3/25/17 VL; vice 50vh to allow more room for tweets, minimize scrolling */
+    width:          80vw;   /* 3/25/17 VL; vice 70vw to allow more room for tweets, minimize scrolling */
+    top:            5vh;    /* 3/25/17 VL; vice 11vh to allow more room for tweets, minimize scrolling */
+    overflow:       auto;
+    display:        none;
+}
+
+.twit thead tr th:nth-child(3) {
+    text-align: right;
+}
+
+.twit thead tr th:nth-child(4) {
     text-align: center;
 }
 
-.Container2 {
-    /*height: 50vh;*/
-    height: 60vh;
-    /*width: 70vw;*/
-    width: 80vw;
-    margin: 0 auto;
-    position: relative;
-    /*top:11vh;*/
-    top:5vh;
-    border-radius: 5px;
-    overflow: auto;
-    /*overflow_x: auto;*/
-    display: none;
-    box-shadow: 0 2px 8px #7a7a7a;
+.twit thead tr th:nth-child(5) {
+    text-align: left;
 }
 
-/*th {*/
-/*border: 1px yellow dotted;*/
-/*}*/
-
-.Container2 .twit thead tr th {
-    padding:    0.3em;
-    margin:     0.3em;
-}
-
-.Container2 .twit thead tr th:nth-child(2) {
-    text-align:     right;
-    padding-right:  1em;
-}
-
-.Container2 .twit thead tr th:nth-child(6) {
-    padding-left:  1em;
-}
-
-.Container2 .twit thead tr th:nth-child(7) {
-    padding-right:  4em;
+.twit thead tr th:last-child {
+    float:  right;
 }
 
 .twit {
-    overflow: auto;
+    overflow:   auto;
 }
 
+/* YouTube videos */
 .Container3 {
-    height: 50vh;
-    width: 70vw;
-    margin: 0 auto;
-    position: relative;
-    top:11vh;
-    border-radius: 5px;
-    overflow: hidden;
-    display:none;
-    box-shadow: 0 2px 8px #7a7a7a;
+    height:         50vh;
+    width:          70vw;
+    top:            11vh;
+    overflow:       hidden;
+    display:        none;
 }
-
-.dropdown{
-    /*transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;*/
-    /*margin: 0 auto;*/
-    display:inline-block;
-}
-
-.dropdown-toggle{
-    background-color:black;
-    border:none;
-    color:white;
-    /*width:6vw;*/
-    width:13em;  /* 3/25/17, make constant; doesn't look good when the black div shrinks and expands as you adjust width -VL */
-}
-
-/*.zipcodeForm {*/
-/*display: none;*/
-/*}*/
 
 .carousel-control.right,
 .carousel-control.left,
 .carousel-inner {
-    border-radius: 10px;
-    border: none;
-    /*overflow: hidden;*/
+    border-radius:  10px;
+    border:         none;
+    /*overflow:     hidden;     3/25/17 VL; for some reason, this hid the right chevron, so it was commented out */
 }
 
-.btn-warning{
-    background-color:black;
-    border:none;
-    transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;
-    box-shadow: 0 0 5px #7a7a7a;
-    display:inline-block;
+.btn-warning {
+    background-color:   black;
+    border:             none;
+    transition:         box-shadow 0.5s linear 0s, color 0.5s linear 0s;
+    box-shadow:         0 0 5px #7a7a7a;
+    display:            inline-block;
 }
 
-.btn-warning:hover{
-    top: -1px;
-    box-shadow: 0 0 5px #7a7a7a;
-    background-color: #464646;
+.btn-warning:hover {
+    top:                -1px;
+    box-shadow:         0 0 5px #7a7a7a;
+    background-color:   #464646;
 }
 
-    /*background-color: #b4e0e1;*/
-.colorBar {
-    width: 100vw;
-    height: .2vh;
-    /*background-color: #b4e0e1;*/
-    background-color: #bcbcbc;
-    position: relative;
-    top:8vh;
-    box-shadow: 0 2px 8px #b5b5b5;
+/* Styling from March 2017, VL */
+.explain_text {
+    color:      purple;
+    font-style: italic;
 }
 
 hr {
     width:  50%;
 }
 
-/*.autoLocationButton {*/
-    /*margin: auto;*/
-/*}*/
-
 @media only screen and (max-width: 600px) {
     .Container2 tbody td:first-child {
         display: none;
     }
+
     .tweet_numbering {
         display: none;
     }
+
     #myCarousel2 {
         height: 82%;
     }

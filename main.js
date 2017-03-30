@@ -425,7 +425,7 @@ function displayTweets() {
             for (var v=0; v < 2; ++v) {                         // append 2 columns to the row just created
                 $(".Container2 .twit tbody tr:last-child").append($("<td>"));
             }
-            $(".Container2 .twit tbody tr:last-child td:last-child").attr("colspan", "6");
+            $(".Container2 .twit tbody tr:last-child td:last-child").attr("colspan", "7");
 
             if (tweet_storage_array.length === 0) {
                 $(".Container2 .twit tbody tr:last-child td:nth-child(2)").text("Sorry, there are no tweets for this venue");

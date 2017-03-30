@@ -7,7 +7,7 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title> music API </title>
+        <title> MusicVenueFind </title>
 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
@@ -18,68 +18,49 @@
     </head>
 
     <body>
-    <div id="image_background"></div>
-    <header>
-        <h3><span class="boldTitle">Venue</span><span class="lightTitle">Find</span></h3>
-        <p>Find Your Music Tonight!</p>
-    </header>
+        <div id="image_background"></div>
 
-    <form class="form-inline">
-        <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-offset-2 col-lg-3">
-            <input type="text" class="form-control" name="zip" id="zipcode" placeholder="Enter Zip Code">
+        <header>
+            <h3>
+                <span class="boldTitle">Venue</span>
+                <span class="lightTitle">Find</span>
+            </h3>
+            <p>Find Your Music Tonight!</p>
+        </header>
+
+        <form class="form-inline">
+            <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-offset-2 col-lg-3">
+                <input type="text" class="form-control" name="zip" id="zipcode" placeholder="Enter Zip Code">
+            </div>
+
+            <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-3" >
+                <input type="text" class="form-control" name="radius" id="radius" placeholder="Search Radius (miles)">
+            </div>
+            <button type="button" class="zipCodeButton btn btn-success input-group col-xs-12 col-sm-12 col-md-1 col-lg-2">Go!</button>
+        </form>
+
+        <div id="map_container">
+            <div id="map"></div>
         </div>
 
-        <!--<div class="slider col-xs-12 col-sm-12" >-->
-        <!--<form method="post" action="demoform.asp" >-->
-        <!--<label for="miles">Miles:</label>-->
-        <!--<input type="range" data-show-value="true" name="miles" id="miles" value="10" min="1" max="100">-->
-        <!--</form>-->
-        <!--</div>-->
+        <div class="container panel panel-default table-responsive">
+            <table class="table-striped table-hover table">
+                <span class="explain_text">Click Info button for photos, tweets and videos of music venue</span>
 
-        <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-3" >
-            <input type="text" class="form-control" name="radius" id="radius" placeholder="Search Radius (miles)">
+                <thead>
+                    <tr>
+                        <th>Info</th>
+                        <th>Venue Name</th>
+                        <th>Location</th>
+                        <th>Hours</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+
+                <tbody class="places-list">
+                </tbody>
+            </table>
         </div>
-        <button type="button" class="zipCodeButton btn btn-success input-group col-xs-12 col-sm-12 col-md-1 col-lg-2">Go!</button>
-
-    <!--<button type="button" class="youTubeButton btn btn-success inlineBlock col-xs-12 col-sm-12 col-md-1 col-lg-1">YouTube</button>-->
-    </form>
-    <div id="map_container">
-        <div id="map"></div>
-    </div>
-
-    <div class="container panel panel-default table-responsive">
-    <table class="table-striped table-hover table"> <span class="explain_text"><em>Click Info button for photos, tweets and videos of music venue</em></span>
-        <thead>
-        <tr>
-            <th>Info</th>
-            <th>Venue Name</th>
-            <th>Location</th>
-            <th>Hours</th>
-            <th>Rating</th>
-        </tr>
-        </thead>
-        <tbody class="places-list">
-        <!--<tr>-->
-        <!--<td>The Observatory</td>-->
-        <!--<td>Santa Ana, CA</td>-->
-        <!--<td>Open Now</td>-->
-        <!--<td><button type="button" class="btn btn-info"><a href="url">Images</a></button></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-        <!--<td>Irvine Meadows Amphitheatre</td>-->
-        <!--<td>Irvine, CA</td>-->
-        <!--<td>Closing Soon</td>-->
-        <!--<td><button type="button" class="btn btn-info"><a href="url">Images</a></button></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-        <!--<td>Pacific Amphitheatre</td>-->
-        <!--<td>Costa Mesa, CA</td>-->
-        <!--<td>Open Now</td>-->
-        <!--<td><button type="button" class="btn btn-info"><a href="url">Images</a></button></td>-->
-        <!--</tr>-->
-        </tbody>
-    </table>
-    </div>
     </body>
 </html>
 
