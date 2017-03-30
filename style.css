@@ -11,7 +11,7 @@ button {
 }
 
 button:hover {
-    top: -1px;
+    top:        -1px;
     box-shadow: 0 0 5px #7a7a7a;
 }
 
@@ -272,6 +272,9 @@ h4 {
 }
 
 .Container1, .Container2, .Container3 {
+    height:         50vh;
+    width:          70vw;
+    top:            11vh;
     margin:         0 auto;
     position:       relative;
     border-radius:  5px;
@@ -280,8 +283,7 @@ h4 {
 
 /* flickr photos */
 .Container1 {
-    height:         50vh;
-    width:          70vw;
+
     top:            11vh;
     overflow:       hidden;
     text-align:     center;
@@ -289,9 +291,9 @@ h4 {
 
 /* tweets */
 .Container2 {
-    height:         60vh;   /* 3/25/17 VL; vice 50vh to allow more room for tweets, minimize scrolling */
-    width:          80vw;   /* 3/25/17 VL; vice 70vw to allow more room for tweets, minimize scrolling */
-    top:            5vh;    /* 3/25/17 VL; vice 11vh to allow more room for tweets, minimize scrolling */
+    /*height:         60vh;   !* 3/25/17 VL; vice 50vh to allow more room for tweets, minimize scrolling *!*/
+    /*width:          80vw;   !* 3/25/17 VL; vice 70vw to allow more room for tweets, minimize scrolling *!*/
+    /*top:            5vh;    !* 3/25/17 VL; vice 11vh to allow more room for tweets, minimize scrolling *!*/
     overflow:       auto;
     display:        none;
 }
@@ -318,8 +320,8 @@ h4 {
 
 /* YouTube videos */
 .Container3 {
-    height:         50vh;
-    width:          70vw;
+    /*height:         50vh;*/
+    /*width:          70vw;*/
     top:            11vh;
     overflow:       hidden;
     display:        none;
@@ -359,14 +361,10 @@ hr {
 
 @media only screen and (max-width: 600px) {
     .Container2 tbody td:first-child {
-        display: none;
-    }
-
-    .tweet_numbering {
-        display: none;
+        display:    none;
     }
 
     #myCarousel2 {
-        height: 82%;
+        height:     82%;
     }
 }

@@ -42,28 +42,7 @@ var psn = [];                   // added 3/25/17 - VL
 var YT_num = 5;                // maximum number of YouTube videos inserted into carousel
 
 $(document).ready(function() {
-
-    //initMap(51.4826,0.0077,100000);
-
     $("#back").click(back_clicked);     // added 3/25/17, VL
-
-    $(".dropPhotosButton").click(function () {
-        $(".Container1").show();
-        $(".Container2").hide();
-        $(".Container3").hide();
-    });
-
-    $(".dropYouTubeButton").click(function () {
-        $(".Container3").show();
-        $(".Container1").hide();
-        $(".Container2").hide();
-    });
-
-    $(".dropTweetsButton").click(function () {
-        $(".Container2").show();
-        $(".Container1").hide();
-        $(".Container3").hide();
-    });
 
     $("#photo_btn").click(function () {
         $(".Container1").show();
@@ -90,8 +69,6 @@ $(document).ready(function() {
         $("#photo_btn").removeClass("disabled");
         $("#tweet_btn").removeClass("disabled");
         $("#video_btn").addClass("disabled");
-
-
     });
 
     lat_from_landing = parseFloat(getUrlParameter("lat"));
@@ -124,7 +101,6 @@ $(document).ready(function() {
             url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC87SYazc5x5nNq7digLxdNnB3riG_eaVc',
             method: "POST",
             success: function(data) {
-                console.log('AJAX Success function called, with the following result:', data);
                 latitude = data.location.lat;
                 longitude= data.location.lng;
                 console.log(data);
@@ -132,7 +108,6 @@ $(document).ready(function() {
                 document.location.href = "index.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
             }
         });
-        console.log('End of click function');
 
     });
     $('.manualLocationButton').click(function() {
@@ -153,19 +128,12 @@ $(document).ready(function() {
     getAndDisplayFlickrPhotos(venue_name + city);
 });
 
-/**
- * Converts miles to meters
- * @param miles
- * @returns {number}
- */
-
 function back_clicked () {
     window.history.back();
 }
 
 function milesToMeters(miles) {
     var meters = miles * 1609.34;
-    console.log(miles + " miles to " + meters + " meters");
     return meters;
 }
 
@@ -176,19 +144,15 @@ function milesToMeters(miles) {
  * @param radius
  */
 function initMap(lat, long, radius) {
-    // var lat = 33;
-    // var long = -117;
-    //var radius = 50000;
-    //radius in meters
+    // radius in meters
     var keyword = "music venues";
+
     if (!radius) {
         radius = 50000;
     } else {
         radius = milesToMeters(radius);
     }
     var original_location = {lat: lat, lng: long};
-
-    //var original_location = {lat: -33.867, lng: 151.195};
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: original_location,
@@ -211,7 +175,7 @@ function callback(results, status) {
             createMarker(results[i]);
         }
     }
-    console.log(results);
+
     places_array = results;
     populateList();
 }
@@ -223,8 +187,7 @@ function createMarker(place) {
         position: place.geometry.location
     });
 
-    google.maps.event.addListener(marker, 'mouseover', function() {     // added 3/25/17, VL
-    // google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'mouseover', function() {     // changed 'click' to 'mouseover' 3/25/17, VL
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
@@ -233,6 +196,7 @@ function createMarker(place) {
 function populateList() {
     var len = places_array.length;
     $(places_list).html("");
+
     for(var i = 0; i < len; i++) {
         addPlaceToDom(places_array[i]);
     }
@@ -253,12 +217,14 @@ function addPlaceToDom(placeObj) {
     //var placeid = placeObj.place_id;
     // var hours = false;
     var hours = "Closed";
+
     if (placeObj.opening_hours) {
         if (placeObj.opening_hours.open_now){
             hours = "Open";
         }
 
     }
+
     var tr = $('<tr>');
     var media_button = $('<a href="info.html?name=' + name + '&vicinity='+vicinity+' "><button type="button" class="btn btn-info mediaButton">Info</button></a>');
     // tr.append( $('<td>').html('<a href="#">' + name + '</a>') );
@@ -269,7 +235,6 @@ function addPlaceToDom(placeObj) {
     tr.append( $('<td>').text(rating) );
     tr.appendTo(places_list);
     // var details = getPlaceDetails(placeid);
-    // console.log(details.url);
 }
 //END GOOGLE PLACES API
 
@@ -291,23 +256,16 @@ function getUrlParameter(sParam) {
 function landingPageButtonClicked() {
     zipcode = input_zipcode.val();
     radius = $('#radius').val();
-    console.log('click initiated');
     $.ajax({
-        dataType: 'json',
-        url: 'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
-        method: "POST",
-        success: function(data) {
-            console.log('AJAX Success function called, with the following result:', data);
+        dataType:   'json',
+        url:        'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
+        method:     "POST",
+        success:    function(data) {
             latitude = data.results[0].geometry.location.lat;
             longitude= data.results[0].geometry.location.lng;
-            console.log(data);
-            console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
             document.location.href = "index.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
-            psn.push(latitude);
-            psn.push(longitude);
         }
     });
-    console.log('End of click function');
 }
 
 function zipCodeButtonClicked() {
@@ -315,34 +273,25 @@ function zipCodeButtonClicked() {
     radius = $('#radius').val();
     console.log('click initiated');
     $.ajax({
-        dataType: 'json',
-        url: 'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
-        method: "POST",
-        success: function(data) {
-            console.log('AJAX Success function called, with the following result:', data);
+        dataType:   'json',
+        url:        'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
+        method:     "POST",
+        success:    function(data) {
             latitude = data.results[0].geometry.location.lat;
             longitude= data.results[0].geometry.location.lng;
-            console.log(data);
-            console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
             initMap(latitude, longitude, radius);
-            psn.push(latitude);
-            psn.push(longitude);
-            return psn;
         }
     });
-    console.log('End of click function');
-    return psn;
 }
 
 function getAndDisplayFlickrPhotos(string) {
     $(".container1").show();
-    //imageSearch = $("#imageSearch").val();
     imageSearch = string;
-    console.log('click initiated' , imageSearch);
+
     $.ajax({
-        dataType: 'json',
-        url: "https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=4291af049e7b51ff411bc39565109ce6&format=json&nojsoncallback=1&text=" + imageSearch,
-        success: function(result) {
+        dataType:   'json',
+        url:        "https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=4291af049e7b51ff411bc39565109ce6&format=json&nojsoncallback=1&text=" + imageSearch,
+        success:    function(result) {
             var server = result.photos.photo[0].server;
             var photoId = result.photos.photo[0].id;
             var secret = result.photos.photo[0].secret;
@@ -359,15 +308,14 @@ function getAndDisplayFlickrPhotos(string) {
                     $("#myCarousel .carousel-inner").append(imageDiv);
                     $(imageDiv).append(image);
                 }
-                else{
+                else {
                     imageDiv = $("<div>").addClass("item");
                     $("#myCarousel .carousel-inner").append(imageDiv);
                     $(imageDiv).append(image);
                 }
             }
-        }
-    });
-    console.log('End of click function');
+        } // end of 'success' function
+    }); // end of ajax call
 }
 
 /** This function receives Twitter_searchTerm as a parameter and then uses it as a search term for Twitter API.  It then gets all tweets (the profile pic of the tweeter and the tweet), places them into an object with 2 properties (urlPic & twt), and stores the object into the global array.  It then displays the first 5 tweets (assuming there are at least 5).  VL*/
@@ -377,73 +325,64 @@ function getAndDisplayFlickrPhotos(string) {
 function getAndDisplayFirstTweets (Twitter_searchTerm) {
     var photo, picLink;
     tweetNum = 1;       // global variable; this function is only called once at "document(ready)", so tweetNum will always be 1
-    console.log("in function getAndDisplayFirstTweets");
-    console.log("latitude: " + psn[0] + "  longitude: " + psn[1]);
 
     $.ajax ({
         dataType:   'json',
         url:        'http://s-apis.learningfuze.com/hackathon/twitter/index.php',
         method:     "POST",
-        // data: {search_term: Twitter_searchTerm, lat: psn[0], long: psn[1], radius: 500},
-        data: {search_term: Twitter_searchTerm, lat: 34, long: -118, radius: 500},  // lat & long for Orange County
-        success: function(result) {
-            console.log("result: ", result);    console.log('AJAX successfully called');
-
+        data:       {search_term: Twitter_searchTerm},
+        success:    function(result) {
             var array = result.tweets.statuses;
             var length = array.length;
             totalTweetNum = length;             // global variable
 
             for (var j = 0; j < length; j++) {  // store each tweet pic url and text into object within global array
-                console.log("j: " + j);
                 tweet_storage_array[j] = {};
                 tweet_storage_array[j].urlPic = result.tweets.statuses[j].user.profile_image_url;
                 tweet_storage_array[j].twt = result.tweets.statuses[j].text;
             }
-            displayTweets();                    // display the 1st five tweets
-            console.log("tweet_storage_array: ", tweet_storage_array);
+            displayTweets();                    // display the 1st five tweets, if any
         }
     });
 }
 
 /** This function displays 5 tweets at a time.  It creates a table in the DOM and retrieves the object properties (picture and tweet) from the global array.  It then dynamically creates elements onto the  table and displays the tweet (tweeter pic and tweet).  VL */
 function displayTweets() {
-        var length, photo, picLink, secondNumber, tweet;
+    var length, photo, picLink, secondNumber, tweet;
 
-        secondNumber = tweetNum + 4;
+    secondNumber = tweetNum + 4;
 
-        if (secondNumber > totalTweetNum) {     // don't want something like "6 to 10 of 8 tweets", want "6 to 8 of 8 tweets"
-            secondNumber = totalTweetNum;
+    if (secondNumber > totalTweetNum) {     // don't want something like "6 to 10 of 8 tweets", want "6 to 8 of 8 tweets"
+        secondNumber = totalTweetNum;
+    }
+
+    $(".twit thead tr th:nth-child(3)").text(tweetNum);     // this is the table header
+    $(".twit thead tr th:nth-child(5)").text(secondNumber);
+    $(".twit thead tr th:nth-child(7)").text(totalTweetNum);
+
+    for (var w=tweetNum - 1; w < tweetNum + 4 ; w++) {
+        $(".twit tbody").append($("<tr>"));     // append table row
+
+        for (var v=0; v < 2; ++v) {                         // append 2 columns to the row just created
+            $(".twit tbody tr:last-child").append($("<td>"));
+        }
+        $(".twit tbody tr:last-child td:last-child").attr("colspan", "8");  // should really be colspan=7, but for mobile view when photo is removed, then there will be 8 columns for the tweet text to span across
+
+        if (tweet_storage_array.length === 0) {
+            $(".twit tbody tr:last-child td:nth-child(2)").text("Sorry, there are no tweets for this venue");
+            break;
         }
 
-        $(".Container2 .twit thead tr th:nth-child(3)").text(tweetNum);     // this is the table header
-        $(".Container2 .twit thead tr th:nth-child(5)").text(secondNumber);
-        $(".Container2 .twit thead tr th:nth-child(7)").text(totalTweetNum);
+        picLink = tweet_storage_array[w].urlPic;
+        photo = $("<img>", {
+            src: picLink
+        });
+        $(".twit tbody tr:last-child td:first-child").append(photo);
 
-        for (var w=tweetNum - 1; w < tweetNum + 4 ; w++) {
-            $(".Container2 .twit tbody").append($("<tr>"));     // append table row
-
-            for (var v=0; v < 2; ++v) {                         // append 2 columns to the row just created
-                $(".Container2 .twit tbody tr:last-child").append($("<td>"));
-            }
-            $(".Container2 .twit tbody tr:last-child td:last-child").attr("colspan", "7");
-
-            if (tweet_storage_array.length === 0) {
-                $(".Container2 .twit tbody tr:last-child td:nth-child(2)").text("Sorry, there are no tweets for this venue");
-                break;
-            }
-
-            picLink = tweet_storage_array[w].urlPic;
-            photo = $("<img>", {
-                src: picLink
-            });
-            $(".Container2 .twit tbody tr:last-child td:first-child").append(photo);
-
-            tweet = tweet_storage_array[w].twt;
-            $(".Container2 .twit tbody tr:last-child td:nth-child(2)").append(tweet);
-        } // end of outer for loop
-
-    $(".Container2 .twit tbody tr").css("overflow", "auto");
-    } // end of function displayTweets
+        tweet = tweet_storage_array[w].twt;
+        $(".twit tbody tr:last-child td:nth-child(2)").append(tweet);
+    } // end of outer for loop
+}
 
 /** This function deletes the table rows of the old tweets first, then displays the next 5 tweets.  The if block takes care of the "wrap around" in case the user exceeds the number of tweets. Function called when clicking on "greater than" symbol on right hand side.  VL */
 function displayFollowingTweets () {
@@ -483,28 +422,22 @@ function displayPrecedingTweets () {
  */
 function getAndDisplayYTVideos (YT_searchTerm) {
     var title, id_video, vid;
-    console.log("in function getAndDisplayYTVideos");
 
     $.ajax({
-        dataType: 'json',
-        url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php?',
-        method: "POST",
-        data: {q: YT_searchTerm, maxResults: YT_num},
-        success: function (result) {
-            console.log('AJAX successfully called');    console.log("result: ", result);
-
+        dataType:   'json',
+        url:        'http://s-apis.learningfuze.com/hackathon/youtube/search.php?',
+        method:     "POST",
+        data:       {q: YT_searchTerm, maxResults: YT_num},
+        success:    function (result) {
             var array = result.video;
             // var length = array.length;  save this just in case we want to include all YouTube videos.
 
-            for (var j = 0; j < YT_num; j++) {  // YT_num is a global variable that is initialized to 10 for now.
-                console.log("j: " + j);
-
+            for (var j = 0; j < YT_num; j++) {  // YT_num is a global variable that is initialized to 5 for now.
                 title = result.video[j].title;  // Though we don't do anything with title, we might use it in future.
                 id_video = result.video[j].id;
 
                 vid = $("<iframe>", {
                     src: "https://www.youtube.com/embed/" + id_video
-                    // src:    "http://www.youtube.com/v/" + id_video + "?enablejsapi=1&version=3&playerapiid=ytplayer"
                 });
 
                 if (!j) {
@@ -518,6 +451,25 @@ function getAndDisplayYTVideos (YT_searchTerm) {
                     $(youTubeDiv).append(vid);
                 }
             }
-        }
-    });
+        } // end of 'success' function
+    }); // end of ajax call
 }
+
+/** Drop down menu, in case we re-use this. VL **/
+    // $(".dropPhotosButton").click(function () {
+    //     $(".Container1").show();
+    //     $(".Container2").hide();
+    //     $(".Container3").hide();
+    // });
+    //
+    // $(".dropYouTubeButton").click(function () {
+    //     $(".Container3").show();
+    //     $(".Container1").hide();
+    //     $(".Container2").hide();
+    // });
+    //
+    // $(".dropTweetsButton").click(function () {
+    //     $(".Container2").show();
+    //     $(".Container1").hide();
+    //     $(".Container3").hide();
+    // });
