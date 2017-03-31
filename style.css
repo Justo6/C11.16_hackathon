@@ -231,10 +231,20 @@ h4 {
 /** INFO.HTML STYLING **/
 .headerContainer {
     width:          100vw;
-    height:         32vh;    /* 3/25/17 VL; vice 28vh to allow more room for horizontal rule and 2nd row of buttons */
+    height:         32vh;   /* 3/25/17 VL; vice 28vh to allow more room for horizontal rule and 2nd row of buttons */
     padding-top:    4vh;
-    background:     linear-gradient(black, gray); /* Standard syntax */
+    background:     linear-gradient(black, gray);
     overflow-y:     auto;   /* 3/25/17 VL; added for responsiveness */
+}
+
+.footerContainer {
+    margin:             0;
+    height:             100%;
+    width:              100%;
+    position:           fixed;
+    background:         linear-gradient(to bottom right, papayawhip, floralwhite, white);
+    background-size:    cover;
+    z-index:            -1;
 }
 
 .venueName > h1 {
