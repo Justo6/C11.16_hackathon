@@ -1,0 +1,69 @@
+<!-- Mike, Sean G, Miles, Vernon    Music Venue API     Hack-a-thon     December 12-14, 2016 -->
+
+<!-- This page contains the map and list of music venues. -->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> MusicVenueFind - home </title>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT9DL6C25JDhTG0ud6mH6T7GWo6BcRg7s&libraries=places"></script>
+    </head>
+
+    <body>
+        <div id="image_background"></div>
+
+        <header>
+            <h3>
+                <span class="boldTitle">Venue</span>
+                <span class="lightTitle">Find</span>
+            </h3>
+            <p>Find Your Music Tonight!</p>
+        </header>
+
+        <form class="form-inline">
+            <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-offset-2 col-lg-3">
+                <input type="text" class="form-control" name="zip" id="zipcode" placeholder="Enter Zip Code">
+            </div>
+
+            <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-3" >
+                <input type="text" class="form-control" name="radius" id="radius" placeholder="Search Radius (miles)">
+            </div>
+            <button type="button" class="zipCodeButton btn btn-success input-group col-xs-12 col-sm-12 col-md-1 col-lg-2">Go!</button>
+        </form>
+
+        <div id="map_container">
+            <div id="map"> </div>
+        </div>
+
+        <div class="container panel panel-default table-responsive">
+            <table class="table-striped table-hover table">
+                <span class="explain_text">Click Info button for photos, tweets and videos of music venue</span>
+
+                <thead>
+                    <tr>
+                        <th>Info</th>
+                        <th>Venue Name</th>
+                        <th>Location</th>
+                        <th>Hours</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+
+                <tbody class="places-list">
+                    <!-- Dynamically add table elements. -->
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+

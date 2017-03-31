@@ -1,5 +1,7 @@
 <!-- Mike, Sean G, Miles, Vernon    Music Venue API     Hack-a-thon     December 12-14, 2016 -->
 
+<!-- This file used to be called "landing_page.html".  This page is only used as an entrance.  Afterwards, the app cycles between index and info pages. -->
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -7,7 +9,7 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title> MusicVenueFind </title>
+        <title> MusicVenueFind - landing/index </title>
 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
@@ -18,49 +20,27 @@
     </head>
 
     <body>
-        <div id="image_background"></div>
+        <div id="image_background"> </div>
 
-        <header>
-            <h3>
-                <span class="boldTitle">Venue</span>
-                <span class="lightTitle">Find</span>
-            </h3>
-            <p>Find Your Music Tonight!</p>
-        </header>
+        <div class="landing_page_container">
+            <header>
+                <h1><span class="boldTitle">Venue</span><span class="lightTitle">Find</span></h1>
+                <h4>Find Your Music Tonight!</h4>
+            </header>
 
-        <form class="form-inline">
-            <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-offset-2 col-lg-3">
-                <input type="text" class="form-control" name="zip" id="zipcode" placeholder="Enter Zip Code">
-            </div>
+            <form class="form-inline zipcodeForm">
+                <div class="form-group input-group col-xs-12 col-sm-12 col-md-5 col-lg-offset-2 col-lg-3" >
+                    <input type="text" class="form-control" name="zip" id="zipcode" placeholder="Enter Zip Code">
+                </div>
 
-            <div class="form-group input-group col-xs-12 col-sm-12 col-md-4 col-lg-3" >
-                <input type="text" class="form-control" name="radius" id="radius" placeholder="Search Radius (miles)">
-            </div>
-            <button type="button" class="zipCodeButton btn btn-success input-group col-xs-12 col-sm-12 col-md-1 col-lg-2">Go!</button>
-        </form>
+                <div class="form-group input-group col-xs-12 col-sm-12 col-md-5 col-lg-3" >
+                    <input type="text" class="form-control" name="radius" id="radius" placeholder="Search Radius (miles)">
+                </div>
 
-        <div id="map_container">
-            <div id="map"></div>
-        </div>
-
-        <div class="container panel panel-default table-responsive">
-            <table class="table-striped table-hover table">
-                <span class="explain_text">Click Info button for photos, tweets and videos of music venue</span>
-
-                <thead>
-                    <tr>
-                        <th>Info</th>
-                        <th>Venue Name</th>
-                        <th>Location</th>
-                        <th>Hours</th>
-                        <th>Rating</th>
-                    </tr>
-                </thead>
-
-                <tbody class="places-list">
-                </tbody>
-            </table>
+                <button type="button" class="landingPageButton btn btn-success input-group col-xs-12 col-sm-12 col-md-1 col-lg-2">Go!</button>
+                <hr>
+                <button type="button" class="autoLocationButton btn btn-warning input-group col-xs-12 col-sm-12 col-md-11 col-lg-12">Use my current location</button>
+            </form>
         </div>
     </body>
 </html>
-

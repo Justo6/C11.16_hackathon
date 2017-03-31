@@ -131,7 +131,7 @@ td:first-child:hover {
     font-weight:    400;
 }
 
-/** LANDING PAGE DESIGN **/
+/** INDEX/LANDING PAGE DESIGN **/
 html, body {
     margin:             0;
     padding:            0;
@@ -351,8 +351,8 @@ h4 {
 
 /* Styling from March 2017, VL */
 .explain_text {
-    color:      purple;
-    font-style: italic;
+    color:              purple;
+    font-style:         italic;
 }
 
 hr {

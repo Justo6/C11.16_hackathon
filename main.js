@@ -17,7 +17,7 @@ var places_list;
  * Global variables for url parameters
  */
 var venue_name;
-var lat_from_landing;
+var lat_from_landing;       // landing page is now index page -VL
 var long_from_landing;
 var radius_from_landing;
 
@@ -83,13 +83,11 @@ $(document).ready(function() {
     $(places_list).on('click', '.mediaButton', function(){
         var index = $(this).index('.mediaButton');
         var name = places_array[index].name;
-        //alert(name);
     });
 
     input_zipcode = $('#zipcode');
     $('.zipCodeButton').click(zipCodeButtonClicked);
-
-    $('.landingPageButton').click(landingPageButtonClicked);
+    $('.landingPageButton').click(landingPageButtonClicked);    // landing page is now index page -VL
 
     $('.followingTweets').click(displayFollowingTweets);    // clears current tweets and displays the next 5 tweets
     $('.precedingTweets').click(displayPrecedingTweets);    // clears current tweets and displays the preceding 5 tweets
@@ -97,23 +95,18 @@ $(document).ready(function() {
     $('.autoLocationButton').click(function() {
         radius = null;
         $.ajax({
-            dataType: 'json',
-            url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC87SYazc5x5nNq7digLxdNnB3riG_eaVc',
-            method: "POST",
-            success: function(data) {
+            dataType:   'json',
+            url:        'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC87SYazc5x5nNq7digLxdNnB3riG_eaVc',
+            method:     "POST",
+            success:    function(data) {
+                var latitude, longitude;
+
                 latitude = data.location.lat;
-                longitude= data.location.lng;
-                console.log(data);
-                console.log("Lat = "+latitude+"- Long = "+longitude + " - Radius = " +radius);
-                document.location.href = "index.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
+                longitude = data.location.lng;
+                // document.location.href = "index.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
+                document.location.href = "home.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
             }
         });
-
-    });
-    $('.manualLocationButton').click(function() {
-        $('.manualLocationButton').hide();
-        $('.autoLocationButton').hide();
-        $('.zipcodeForm').show();
     });
 
     venue_name = getUrlParameter("name");
@@ -122,10 +115,10 @@ $(document).ready(function() {
     city = city[city.length-1];
     $('.infoVenueName').append(venue_name);
     $(".infoAddress").append(vicinity);
+
+    getAndDisplayFlickrPhotos(venue_name + city);   // flicker API call begins here
     getAndDisplayFirstTweets(venue_name + city);    // gets tweets from Twitter API and displays on info.html
     getAndDisplayYTVideos(venue_name + city);       // gets videos from YouTube API and displays on info.html
-    // flicker API call begins here
-    getAndDisplayFlickrPhotos(venue_name + city);
 });
 
 function back_clicked () {
@@ -133,7 +126,7 @@ function back_clicked () {
 }
 
 function milesToMeters(miles) {
-    var meters = miles * 1609.34;
+    meters = miles * 1609.34;
     return meters;
 }
 
@@ -222,7 +215,6 @@ function addPlaceToDom(placeObj) {
         if (placeObj.opening_hours.open_now){
             hours = "Open";
         }
-
     }
 
     var tr = $('<tr>');
@@ -253,7 +245,7 @@ function getUrlParameter(sParam) {
     }
 }
 
-function landingPageButtonClicked() {
+function landingPageButtonClicked() {   // landing page is now index page
     zipcode = input_zipcode.val();
     radius = $('#radius').val();
     $.ajax({
@@ -261,9 +253,11 @@ function landingPageButtonClicked() {
         url:        'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
         method:     "POST",
         success:    function(data) {
+            var latitue, longitude;
+
             latitude = data.results[0].geometry.location.lat;
             longitude= data.results[0].geometry.location.lng;
-            document.location.href = "index.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
+            document.location.href = "home.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
         }
     });
 }
