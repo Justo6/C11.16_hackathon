@@ -71,6 +71,23 @@ $(document).ready(function() {
         $("#video_btn").addClass("disabled");
     });
 
+    $(".dropPhotosButton").click(function () {
+        $(".Container1").show();
+        $(".Container2").hide();
+        $(".Container3").hide();
+    });
+
+    $(".dropYouTubeButton").click(function () {
+        $(".Container3").show();
+        $(".Container1").hide();
+        $(".Container2").hide();
+    });
+    $(".dropTweetsButton").click(function () {
+        $(".Container2").show();
+        $(".Container1").hide();
+        $(".Container3").hide();
+    });
+
     lat_from_landing = parseFloat(getUrlParameter("lat"));
     long_from_landing = parseFloat(getUrlParameter("long"));
     radius_from_landing = parseInt(getUrlParameter("radius"));

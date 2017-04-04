@@ -243,6 +243,7 @@ h4 {
     width:              100%;
     position:           fixed;
     background:         linear-gradient(to bottom right, papayawhip, floralwhite, white);
+    background:         linear-gradient(lightgoldenrodyellow, lightyellow);
     background-size:    cover;
     z-index:            -1;
 }
@@ -321,7 +322,7 @@ h4 {
 }
 
 .twit thead tr th:last-child {
-    float:  right;
+    text-align:  right;
 }
 
 .twit {
@@ -335,6 +336,31 @@ h4 {
     top:            11vh;
     overflow:       hidden;
     display:        none;
+}
+
+.dropdown{
+    /*transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;*/
+    /*margin: 0 auto;*/
+    display:            inline-block;
+}
+
+.dropdown-toggle{
+    background-color:   #37474F;
+    border:             none;
+    color:              white;
+    transition:         box-shadow 0.5s linear 0s, color 0.5s linear 0s;
+    box-shadow:         0 0 5px #7a7a7a;
+}
+
+.dropdown-toggle:hover{
+    top:                -1px;
+    box-shadow:         0 0 5px #7a7a7a;
+    background-color:   #263238;
+    color:              white;
+}
+
+.dropdown {
+    display:    none;
 }
 
 .carousel-control.right,
@@ -366,9 +392,31 @@ h4 {
 }
 
 hr {
-    width:  50%;
+    width:          50%;
+    margin-top:     10px;
+    margin-bottom:  10px;
 }
 
+/******************** Responsiveness **************************/
+/* For mobile landscape */
+@media only screen and (orientation: landscape) {
+    .normal_buttons {
+        display:    inline-block;
+    }
+
+    .venueName > h1 {
+        font-size:  2.2em;
+    }
+}
+
+/* For non-mobile */
+@media only screen and (min-width: 700px) {
+    .venueName > h1 {
+        font-size:  3em;
+    }
+}
+
+/* For mobile portrait */
 @media only screen and (max-width: 600px) {
     .Container2 tbody td:first-child {
         display:    none;
@@ -376,5 +424,9 @@ hr {
 
     #myCarousel2 {
         height:     82%;
+    }
+
+    .venueName > h1 {
+        font-size:  2.2em;
     }
 }
