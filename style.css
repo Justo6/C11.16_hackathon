@@ -23,7 +23,7 @@ button:hover {
 
 .container {
      width: 80vw;
- }
+}
 
 .photosButton > a {
     color:  white;
@@ -242,8 +242,9 @@ h4 {
     height:             100%;
     width:              100%;
     position:           fixed;
-    background:         linear-gradient(to bottom right, papayawhip, floralwhite, white);
-    background:         linear-gradient(lightgoldenrodyellow, lightyellow);
+    /*background:         linear-gradient(to bottom right, papayawhip, floralwhite, white);*/
+    /*background:         linear-gradient(lightgoldenrodyellow, lightyellow);*/
+    background:         linear-gradient(#999967, #CCCFBC);
     background-size:    cover;
     z-index:            -1;
 }
@@ -294,7 +295,7 @@ h4 {
 
 /* flickr photos */
 .Container1 {
-
+    background-color:   white;
     top:            11vh;
     overflow:       hidden;
     text-align:     center;
@@ -333,34 +334,10 @@ h4 {
 .Container3 {
     /*height:         50vh;*/
     /*width:          70vw;*/
-    top:            11vh;
-    overflow:       hidden;
-    display:        none;
-}
-
-.dropdown{
-    /*transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;*/
-    /*margin: 0 auto;*/
-    display:            inline-block;
-}
-
-.dropdown-toggle{
-    background-color:   #37474F;
-    border:             none;
-    color:              white;
-    transition:         box-shadow 0.5s linear 0s, color 0.5s linear 0s;
-    box-shadow:         0 0 5px #7a7a7a;
-}
-
-.dropdown-toggle:hover{
-    top:                -1px;
-    box-shadow:         0 0 5px #7a7a7a;
-    background-color:   #263238;
-    color:              white;
-}
-
-.dropdown {
-    display:    none;
+    top:                11vh;
+    overflow:           hidden;
+    display:            none;
+    background-color:   white;
 }
 
 .carousel-control.right,
@@ -407,12 +384,46 @@ hr {
     .venueName > h1 {
         font-size:  2.2em;
     }
+
+    .container {
+        width: 95vw;
+    }
+
+    .container tr {
+        font-size:  11px;
+    }
+
+    .places-list td:first-child {
+        max-width:  20px;
+    }
+
+    .places-list td:nth-child(2)  {
+        max-width:      50px;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        white-space:    nowrap;
+    }
+
+    .places-list td:nth-child(3)  {
+        max-width:      160px;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        white-space:    nowrap;
+    }
+
+    .short_word {
+        display:    none;
+    }
 }
 
 /* For non-mobile */
 @media only screen and (min-width: 700px) {
     .venueName > h1 {
         font-size:  3em;
+    }
+
+    .short_word {
+        display:    none;
     }
 }
 
@@ -429,4 +440,82 @@ hr {
     .venueName > h1 {
         font-size:  2.2em;
     }
+
+    .container {
+        width: 95vw;
+    }
+
+    .container tr {
+        font-size:  10px;
+    }
+
+    .places-list td:first-child {
+        max-width:  45px;
+    }
+
+    .places-list td:nth-child(2)  {
+        max-width:      50px;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        white-space:    nowrap;
+    }
+
+    .places-list td:nth-child(3)  {
+        max-width:      150px;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        white-space:    nowrap;
+    }
+
+    .places-list td:nth-child(4)  {
+        max-width:      50px;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        white-space:    nowrap;
+    }
+
+    .places-list td:nth-child(5)  {
+        max-width:      10px;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        white-space:    nowrap;
+    }
+
+    .short_word {
+        display:    table-cell;
+    }
+
+    .long_word {
+        display:    none;
+    }
+
+    .mediaButton {
+        padding:    4px 8px;
+    }
+}
+
+/******************** keep in case we re-use ****************************/
+.dropdown {
+    /*transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;*/
+    /*margin: 0 auto;*/
+    display:            inline-block;
+}
+
+.dropdown-toggle {
+    background-color:   #37474F;
+    border:             none;
+    color:              white;
+    transition:         box-shadow 0.5s linear 0s, color 0.5s linear 0s;
+    box-shadow:         0 0 5px #7a7a7a;
+}
+
+.dropdown-toggle:hover {
+    top:                -1px;
+    box-shadow:         0 0 5px #7a7a7a;
+    background-color:   #263238;
+    color:              white;
+}
+
+.dropdown {
+    display:    none;
 }
