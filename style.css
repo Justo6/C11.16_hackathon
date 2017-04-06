@@ -4,6 +4,27 @@ header {
     color:      white;
 }
 
+.hide_me {
+    display:    none;
+}
+
+.search_icon {
+    height:         30px;
+    width:          30px;
+    display:        inline-block;
+    position:       absolute;
+    left:           85%;
+    top:            4%;
+}
+
+.search_icon img {
+    max-height: 100%;
+}
+
+.search_icon img:hover {
+    cursor: pointer;
+}
+
 button {
     margin:     auto;
     transition: box-shadow 0.5s linear 0s, color 0.5s linear 0s;
@@ -376,7 +397,7 @@ hr {
 
 /******************** Responsiveness **************************/
 /* For mobile landscape */
-@media only screen and (orientation: landscape) {
+@media only screen and (orientation: landscape) and (max-width: 767px) {
     .normal_buttons {
         display:    inline-block;
     }
@@ -399,16 +420,10 @@ hr {
 
     .places-list td:nth-child(2)  {
         max-width:      50px;
-        overflow:       hidden;
-        text-overflow:  ellipsis;
-        white-space:    nowrap;
     }
 
     .places-list td:nth-child(3)  {
         max-width:      160px;
-        overflow:       hidden;
-        text-overflow:  ellipsis;
-        white-space:    nowrap;
     }
 
     .short_word {
@@ -417,7 +432,7 @@ hr {
 }
 
 /* For non-mobile */
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 767px) {
     .venueName > h1 {
         font-size:  3em;
     }
@@ -427,8 +442,14 @@ hr {
     }
 }
 
+@media screen and (max-width: 767px) {          /* needed to overwrite the bootstrap class with "white-space: nowrap" */
+    .table-responsive>.table>tbody>tr>td {
+        white-space:    normal;
+    }
+}
+
 /* For mobile portrait */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 767px) {
     .Container2 tbody td:first-child {
         display:    none;
     }
@@ -450,35 +471,23 @@ hr {
     }
 
     .places-list td:first-child {
-        max-width:  45px;
+        max-width:  50px;
     }
 
     .places-list td:nth-child(2)  {
         max-width:      50px;
-        overflow:       hidden;
-        text-overflow:  ellipsis;
-        white-space:    nowrap;
     }
 
     .places-list td:nth-child(3)  {
         max-width:      150px;
-        overflow:       hidden;
-        text-overflow:  ellipsis;
-        white-space:    nowrap;
     }
 
     .places-list td:nth-child(4)  {
-        max-width:      50px;
-        overflow:       hidden;
-        text-overflow:  ellipsis;
-        white-space:    nowrap;
+        max-width:      40px;
     }
 
     .places-list td:nth-child(5)  {
         max-width:      10px;
-        overflow:       hidden;
-        text-overflow:  ellipsis;
-        white-space:    nowrap;
     }
 
     .short_word {

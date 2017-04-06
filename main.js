@@ -71,6 +71,10 @@ $(document).ready(function() {
         $("#video_btn").addClass("disabled");
     });
 
+    $(".search_icon").click(function () {
+        $("#homePage_form").toggleClass("hide_me");
+    });
+
     lat_from_landing = parseFloat(getUrlParameter("lat"));
     long_from_landing = parseFloat(getUrlParameter("long"));
     radius_from_landing = parseInt(getUrlParameter("radius"));
