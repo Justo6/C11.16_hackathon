@@ -121,8 +121,8 @@ $(document).ready(function() {
     $(".infoAddress").append(vicinity);
 
     getAndDisplayFlickrPhotos(venue_name + city);   // flicker API call begins here
-    getAndDisplayFirstTweets(venue_name + city);    // gets tweets from Twitter API and displays on info2.html
-    getAndDisplayYTVideos(venue_name + city);       // gets videos from YouTube API and displays on info2.html
+    getAndDisplayFirstTweets(venue_name + city);    // gets tweets from Twitter API and displays on info.html
+    getAndDisplayYTVideos(venue_name + city);       // gets videos from YouTube API and displays on info.html
 });
 
 function back_clicked () {
@@ -222,12 +222,12 @@ function addPlaceToDom(placeObj) {
     }
 
     var tr = $('<tr>');
-    // var media_button = $('<a href="info2.html?name=' + name + '&vicinity='+vicinity+' "><button type="button" class="btn btn-info mediaButton">Info</button></a>');
+    // var media_button = $('<a href="info.html?name=' + name + '&vicinity='+vicinity+' "><button type="button" class="btn btn-info mediaButton">Info</button></a>');
     // tr.append( $('<td>').html('<a href="#">' + name + '</a>') );
     // tr.append( $('<td>').append(media_button) );
     // tr.append( $('<td>').text(name) );
 
-    tr.append( $('<td>').html('' + name + '<a href="info2.html?name=&vicinity=">'+vicinity+'' + name + '</a>') );
+    tr.append( $('<td>').html('' + name + '<a href="info.html?name=&vicinity=">'+vicinity+'' + name + '</a>') );
     tr.append( $('<td>').text(vicinity) );
     tr.append( $('<td>').text(hours) );
     tr.append( $('<td>').text(rating) );
