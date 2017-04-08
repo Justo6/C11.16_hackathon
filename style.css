@@ -176,13 +176,12 @@ html, body {
     height:             100%;
     width:              100%;
     position:           fixed;
-    background-image:   url('img/background_image_1100x700.jpg');
-    /*background-repeat:  no-repeat;*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-size:    cover;
+    background-image:   url('img/background_image.jpg');
+    background-repeat:  no-repeat;
+    -webkit-background-size:    cover;
+    -moz-background-size:       cover;
+    -o-background-size:         cover;
+    background-size:            cover;
     z-index:            -1;
 }
 
@@ -267,12 +266,12 @@ h4 {
     margin:             0;
     height:             100%;
     width:              100%;
-    /*position:           fixed;*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    position:           fixed;
+    -webkit-background-size:    cover;
+    -moz-background-size:       cover;
+    -o-background-size:         cover;
+    background-size:            cover;
     background:         linear-gradient(#999967, #CCCFBC);
-    background-size:    cover;
     z-index:            -1;
 }
 
