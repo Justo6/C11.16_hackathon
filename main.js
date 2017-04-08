@@ -227,7 +227,7 @@ function addPlaceToDom(placeObj) {
     // tr.append( $('<td>').append(media_button) );
     // tr.append( $('<td>').text(name) );
 
-    tr.append( $('<td>').html('' + name + '<a href="info.html?name=&vicinity=">'+vicinity+'' + name + '</a>') );
+    tr.append( $('<td>').html('<a href="info.html?name=' + name + '&vicinity='+vicinity+' ">' + name + '</a>') );
     tr.append( $('<td>').text(vicinity) );
     tr.append( $('<td>').text(hours) );
     tr.append( $('<td>').text(rating) );
@@ -259,7 +259,7 @@ function landingPageButtonClicked() {   // landing page is now index page
         url:        'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
         method:     "POST",
         success:    function(data) {
-            var latitue, longitude;
+            var latitude, longitude;
 
             latitude = data.results[0].geometry.location.lat;
             longitude= data.results[0].geometry.location.lng;
@@ -277,9 +277,12 @@ function zipCodeButtonClicked() {
         url:        'http://maps.googleapis.com/maps/api/geocode/json?address='+ zipcode,
         method:     "POST",
         success:    function(data) {
+            var latitude, longitude;
+
             latitude = data.results[0].geometry.location.lat;
             longitude= data.results[0].geometry.location.lng;
-            initMap(latitude, longitude, radius);
+            // initMap(latitude, longitude, radius);
+            document.location.href = "home.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
         }
     });
 }
