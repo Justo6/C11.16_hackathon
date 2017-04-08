@@ -177,7 +177,7 @@ html, body {
     width:              100%;
     position:           fixed;
     background-image:   url('img/background_image_1100x700.jpg');
-    background-repeat:  no-repeat;
+    /*background-repeat:  no-repeat;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -267,7 +267,7 @@ h4 {
     margin:             0;
     height:             100%;
     width:              100%;
-    position:           fixed;
+    /*position:           fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
