@@ -305,6 +305,11 @@ h4 {
     height: 91%;    /* to allow room for explanatory text at bottom of YouTube video carousel */
 }
 
+#expand_myCarousel2:hover {
+    cursor:     pointer;
+    color:      green;
+}
+
 .Container1, .Container2, .Container3 {
     height:         50vh;
     width:          70vw;

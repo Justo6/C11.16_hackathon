@@ -42,7 +42,8 @@ var psn = [];                   // added 3/25/17 - VL
 var YT_num = 5;                // maximum number of YouTube videos inserted into carousel
 
 $(document).ready(function() {
-    $("#back").click(back_clicked);     // added 3/25/17, VL
+    $("#back").click(backClicked);     // added 3/25/17, VL
+    $("#expand_myCarousel2").click(hideTextClicked);
 
     $("#photo_btn").click(function () {
         $(".Container1").show();
@@ -107,7 +108,6 @@ $(document).ready(function() {
 
                 latitude = data.location.lat;
                 longitude = data.location.lng;
-                // document.location.href = "index.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
                 document.location.href = "home.html?lat=" + latitude + "&long=" + longitude + "&radius=" + radius;
             }
         });
@@ -125,8 +125,12 @@ $(document).ready(function() {
     getAndDisplayYTVideos(venue_name + city);       // gets videos from YouTube API and displays on info.html
 });
 
-function back_clicked () {
+function backClicked () {
     window.history.back();
+}
+
+function hideTextClicked () {
+    $("#myCarousel2").css("height", "100%");
 }
 
 function milesToMeters(miles) {
