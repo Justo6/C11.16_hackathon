@@ -163,7 +163,7 @@ html, body {
     min-height:         100%;
     -webkit-animation:  fadein 2s;
     -moz-animation:     fadein 2s;
-    animation:          fadein 2s;
+    animation:          fadein 2s forwards;
 }
 
 @-webkit-keyframes fadein {
