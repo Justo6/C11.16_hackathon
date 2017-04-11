@@ -161,8 +161,8 @@ html, body {
     height:             100%;
     display:            table;
     min-height:         100%;
-    -webkit-animation:  fadein 2s;
-    -moz-animation:     fadein 2s;
+    -webkit-animation:  fadein 2s forwards;
+    -moz-animation:     fadein 2s forwards;
     animation:          fadein 2s forwards;
 }
 
