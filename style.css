@@ -61,7 +61,8 @@ a:active {
 }
 
 .search_icon img:hover {
-    cursor: pointer;
+    cursor:     pointer;
+    opacity:    0.5;
 }
 
 #map_container {
@@ -147,10 +148,12 @@ td:first-child:hover {
 
 .boldTitle {
     font-weight:    900;
+    text-shadow:    -1px 0 purple, 0 1px purple, 1px 0 purple, 0 -1px purple;
 }
 
 .lightTitle {
     font-weight:    400;
+    text-shadow:    -1px 0 purple, 0 1px purple, 1px 0 purple, 0 -1px purple;
 }
 
 /** INDEX/LANDING PAGE DESIGN **/
@@ -271,8 +274,14 @@ h4 {
     -moz-background-size:       cover;
     -o-background-size:         cover;
     background-size:            cover;
-    background:         linear-gradient(#999967, #CCCFBC);
+    /*background:         linear-gradient(#999967, #CCCFBC);*/
+    background:         linear-gradient(royalblue, darkblue);
+    /*background:         #f0ad4e;*/
     z-index:            -1;
+}
+
+#tweet_btn .btn .btn-warning .medium .disabled .blue {
+    background-color:   darkblue;
 }
 
 .venueName > h1 {
@@ -306,7 +315,7 @@ h4 {
 }
 
 #myCarousel2 {      /* YouTube videos */
-    height: 91%;    /* to allow room for explanatory text at bottom of YouTube video carousel */
+    height: 100%;
 }
 
 #expand_myCarousel2:hover {
@@ -326,7 +335,7 @@ h4 {
 
 /* flickr photos */
 .Container1 {
-    background-color:   white;
+    /*background-color:   white;*/
     top:            11vh;
     overflow:       hidden;
     text-align:     center;
@@ -361,6 +370,10 @@ h4 {
     overflow:   auto;
 }
 
+.twit tr:nth-child(even) {
+    color:      yellow;
+}
+
 /* YouTube videos */
 .Container3 {
     /*height:         50vh;*/
@@ -368,7 +381,7 @@ h4 {
     top:                11vh;
     overflow:           hidden;
     display:            none;
-    background-color:   white;
+    /*background-color:   white;*/
 }
 
 .carousel-control.right,

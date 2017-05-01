@@ -49,27 +49,27 @@ $(document).ready(function() {
         $(".Container1").show();
         $(".Container2").hide();
         $(".Container3").hide();
-        $("#photo_btn").addClass("disabled");
-        $("#tweet_btn").removeClass("disabled");
-        $("#video_btn").removeClass("disabled");
+        $("#photo_btn").addClass("disabled blue");
+        $("#tweet_btn").removeClass("disabled blue");
+        $("#video_btn").removeClass("disabled blue");
     });
 
     $("#tweet_btn").click(function () {
         $(".Container1").hide();
         $(".Container2").show();
         $(".Container3").hide();
-        $("#photo_btn").removeClass("disabled");
-        $("#tweet_btn").addClass("disabled");
-        $("#video_btn").removeClass("disabled");
+        $("#photo_btn").removeClass("disabled blue");
+        $("#tweet_btn").addClass("disabled blue");
+        $("#video_btn").removeClass("disabled blue");
     });
 
     $("#video_btn").click(function () {
         $(".Container1").hide();
         $(".Container2").hide();
         $(".Container3").show();
-        $("#photo_btn").removeClass("disabled");
-        $("#tweet_btn").removeClass("disabled");
-        $("#video_btn").addClass("disabled");
+        $("#photo_btn").removeClass("disabled blue");
+        $("#tweet_btn").removeClass("disabled blue");
+        $("#video_btn").addClass("disabled blue");
     });
 
     $(".search_icon").click(function () {
